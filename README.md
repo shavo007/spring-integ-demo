@@ -24,7 +24,7 @@ showcase benefits of integ tests
 - [CustomerThirdPartyAPIIT](./src/test/java/com/example/integdemo/CustomerThirdPartyAPIIT.java) showcase generic container to test out integration with 3rd party API `mvn test -Dtest=CustomerThirdPartyAPIIT`
 - showcase running as github action with docker containers
 - mock dao layer with @mockbean
-- showcase using restAssured
+- [CustomerRestAssuredIT](./src/test/java/com/example/integdemo/CustomerRestAssuredIT.java) showcase using restAssured
 - showcase exception handling
 
 ## Mvn failsafe plugin
