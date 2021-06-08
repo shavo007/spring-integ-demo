@@ -17,12 +17,11 @@ showcase benefits of integ tests
 
 ## Test showcases
 
-- showcase full blown integ test with db (bootstraps entire web container) `mvn test -Dtest=CustomerFullBlownIT`
-- showcase full blown integ test with embedded db (bootstraps entire web container) `mvn test -Dtest=CustomerFullBlownEmbeddedIT`
-- showcase full blown integ test with testcontainer db (bootstraps entire web container) `mvn test -Dtest=CustomerFullBlownTestConIT`
-- showcase integ test with only web layer (not start http server) `mvn test -Dtest=CustomerControllerIT`
-- showcase integ test with test containers
-- showcase generic container to test out integration with 3rd party API
+- [CustomerFullBlownIT](./src/test/java/com/example/integdemo/CustomerFullBlownIT.java)showcase full blown integ test with db (bootstraps entire web container) `mvn test -Dtest=CustomerFullBlownIT`
+- [CustomerFullBlownEmbeddedIT](./src/test/java/com/example/integdemo/CustomerFullBlownEmbeddedIT.java) showcase full blown integ test with embedded db (bootstraps spring app context but not starts server) `mvn test -Dtest=CustomerFullBlownEmbeddedIT`
+- [CustomerFullBlownTestConIT](./src/test/java/com/example/integdemo/CustomerFullBlownTestConIT.java)showcase full blown integ test with testcontainer db (bootstraps entire web container) `mvn test -Dtest=CustomerFullBlownTestConIT`
+- [CustomerControllerIT](./src/test/java/com/example/integdemo/CustomerControllerIT.java) showcase integ test with only web layer (not start http server) `mvn test -Dtest=CustomerControllerIT`
+- [CustomerThirdPartyAPIIT](./src/test/java/com/example/integdemo/CustomerThirdPartyAPIIT.java) showcase generic container to test out integration with 3rd party API `mvn test -Dtest=CustomerThirdPartyAPIIT`
 - showcase running as github action with docker containers
 - mock dao layer with @mockbean
 - showcase using restAssured
@@ -47,6 +46,7 @@ mvn verify
 
 ```bash
 docker run --name postgres-demo -e POSTGRES_PASSWORD=root -p 5432:5432 -d postgres:11
+docker run -d -p8090:8081 shanelee007/greetings-api:latest
 mvn spring-boot:run
 ```
 

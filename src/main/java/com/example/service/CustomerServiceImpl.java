@@ -5,14 +5,17 @@ import com.example.repo.CustomerRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 @Service
 @Transactional
 @RequiredArgsConstructor
+@Slf4j
 public class CustomerServiceImpl implements CustomerService {
 
 
     private final CustomerRepository customerRepository;
+    private final GreetingsService greetingsService;
 
     @Override
     public Customer getCustomerById(Long id) {
@@ -34,6 +37,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public Customer save(Customer employee) {
+        log.info("greetings! 😉 {}",greetingsService.sayHi());
         return customerRepository.save(employee);
     }
 
@@ -42,10 +46,10 @@ public class CustomerServiceImpl implements CustomerService {
         return customerRepository.findAll();
     }
 
-		@Override
-		public void delete(Long id) {
-			customerRepository.deleteById(id);
+    @Override
+    public void delete(Long id) {
+      customerRepository.deleteById(id);
 
-		}
+    }
 
 }

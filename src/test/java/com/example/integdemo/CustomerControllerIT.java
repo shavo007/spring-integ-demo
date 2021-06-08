@@ -6,11 +6,15 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
 import org.mockito.internal.verification.VerificationModeFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.web.client.RestTemplate;
 import de.adesso.junitinsights.annotations.JUnitInsights;
 import com.example.controller.CustomerController;
 import com.example.model.Customer;
@@ -26,6 +30,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import java.util.Arrays;
 import java.util.List;
+import org.springframework.boot.test.context.TestConfiguration;
 
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(CustomerController.class) // A mock MVC testing slice without the rest of the app
@@ -49,6 +54,16 @@ public class CustomerControllerIT {
 
 	@MockBean
 	private CustomerService service;
+	@MockBean
+	private RestTemplate restTemplate;
+
+	// @TestConfiguration
+	// static class RestTemplateContextConfiguration {
+	// 	@Bean
+	// 	public RestTemplate restTemplate() {
+	// 	return new RestTemplate();
+	// 	}
+	// }
 
 	@Test
 	public void whenPostCustomer_thenCreateCustomer() throws Exception {
