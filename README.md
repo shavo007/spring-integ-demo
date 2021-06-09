@@ -1,5 +1,7 @@
 # Spring integration tests
 
+[![.github/workflows/push.yml](https://github.com/shavo007/spring-integ-demo/actions/workflows/push.yml/badge.svg)](https://github.com/shavo007/spring-integ-demo/actions/workflows/push.yml)
+
 ![customer API arch](./assets/CustomerAPI.svg)
 
 > Integration testing is a healthy part of the [test pyramid](https://martinfowler.com/articles/practical-test-pyramid.html)
