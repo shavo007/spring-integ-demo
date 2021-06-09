@@ -34,4 +34,4 @@ jobs:
     - name: Build with Maven
       run: mvn --batch-mode --update-snapshots test  -Dtest=CustomerGithubActionsIT
       env:
-        POSTGRES_HOST: jdbc:postgresql://postgres:5432/postgres
+        POSTGRES_HOST: jdbc:postgresql://localhost:5432/postgres
