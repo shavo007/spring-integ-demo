@@ -12,6 +12,9 @@ jobs:
           - 8090:8081
       postgres:
         image: postgres:11
+        env:
+          POSTGRES_USERNAME: postgres
+          POSTGRES_PASSWORD: root
         ports:
           - 5432:5432
 
@@ -30,3 +33,5 @@ jobs:
         restore-keys: ${{ runner.os }}-m2
     - name: Build with Maven
       run: mvn --batch-mode --update-snapshots test  -Dtest=CustomerGithubActionsIT
+      env:
+        POSTGRES_HOST: jdbc:postgresql://postgres:5432/postgres
