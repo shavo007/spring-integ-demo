@@ -1,10 +1,11 @@
 # Spring integration tests
 
+![customer API arch](./assets/CustomerAPI.svg)
+
 > Integration testing is a healthy part of the [test pyramid](https://martinfowler.com/articles/practical-test-pyramid.html)
 
 ## TODO
 
-add in diagrams
 showcase benefits of integ tests
 
 ## Definition of an integration test
@@ -22,8 +23,8 @@ showcase benefits of integ tests
 - [CustomerFullBlownTestConIT](./src/test/java/com/example/integdemo/CustomerFullBlownTestConIT.java)showcase full blown integ test with testcontainer db (bootstraps entire web container) `mvn test -Dtest=CustomerFullBlownTestConIT`
 - [CustomerControllerIT](./src/test/java/com/example/integdemo/CustomerControllerIT.java) showcase integ test with only web layer (not start http server) `mvn test -Dtest=CustomerControllerIT`
 - [CustomerThirdPartyAPIIT](./src/test/java/com/example/integdemo/CustomerThirdPartyAPIIT.java) showcase generic container to test out integration with 3rd party API `mvn test -Dtest=CustomerThirdPartyAPIIT`
-- showcase running as github action with docker containers
-- mock dao layer with @mockbean
+- [CustomerS3LocalStackIT](./src/test/java/com/example/integdemo/CustomerS3LocalStackIT.java) AWS s3 example with localstack `mvn test -Dtest=CustomerS3LocalStackIT`
+- [CustomerGithubActionsIT](./src/test/java/com/example/integdemo/CustomerGithubActionsIT.java) showcase running as github action with docker containers `mvn test -Dtest=CustomerGithubActionsIT`
 - [CustomerRestAssuredIT](./src/test/java/com/example/integdemo/CustomerRestAssuredIT.java) showcase using restAssured
 - showcase exception handling
 
@@ -47,6 +48,8 @@ mvn verify
 ```bash
 docker run --name postgres-demo -e POSTGRES_PASSWORD=root -p 5432:5432 -d postgres:11
 docker run -d -p8090:8081 shanelee007/greetings-api:latest
+docker run -d -p 4566:4566 -p 4571:4571 localstack/localstack -e "SERVICES=dynamodb,s3"
+
 mvn spring-boot:run
 ```
 

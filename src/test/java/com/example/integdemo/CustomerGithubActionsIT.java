@@ -49,8 +49,7 @@ import static org.mockito.Mockito.doNothing;
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT, classes = IntegDemoApplication.class)
 @DisplayNameGeneration(org.junit.jupiter.api.DisplayNameGenerator.ReplaceUnderscores.class)
 @JUnitInsights
-@AutoConfigureTestDatabase(connection = org.springframework.boot.jdbc.EmbeddedDatabaseConnection.H2)
-public class CustomerRestAssuredIT {
+public class CustomerGithubActionsIT {
 
 	@LocalServerPort
 	int randomServerPort;
@@ -60,14 +59,14 @@ public class CustomerRestAssuredIT {
 
 	@Autowired
 	private CustomerRepository repository;
-	@MockBean
-	private GreetingsService service;
+	// @MockBean
+	// private GreetingsService service;
 	@MockBean
 	private ObjectService objectService;
 
 	@BeforeEach
 	public void setup() {
-		given(service.sayHi()).willReturn(new Greeting());
+		// given(service.sayHi()).willReturn(new Greeting());
 		doNothing().when(objectService).putObject(Mockito.any());
 	}
 
@@ -101,6 +100,15 @@ public class CustomerRestAssuredIT {
 		io.restassured.RestAssured.given().log().all().when().get(uri + "/customers/{id}",bob.getId()).then().log().all()
 				.assertThat().statusCode(HttpStatus.OK.value()).contentType(ContentType.JSON)
 				.and().body("firstName", is("bob"));
+	}
+
+	@Test
+	public void whenValidInput_thenCreateCustomer() throws IOException, Exception {
+		Customer bob = new Customer();
+		bob.setFirstName("bob");
+		bob.setLastName("tmart");
+		io.restassured.RestAssured.given().log().all().when().with().body(bob).contentType(ContentType.JSON).post(uri + "/customers").then().log().all()
+				.assertThat().statusCode(HttpStatus.CREATED.value()).contentType(ContentType.JSON);
 	}
 
 	//
