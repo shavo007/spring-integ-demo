@@ -3,6 +3,7 @@ package com.example.controller;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import javax.validation.Valid;
 import com.example.model.Customer;
 import com.example.repo.CustomerRepository;
 import com.example.service.CustomerService;
@@ -54,7 +55,7 @@ public class CustomerController {
 		}
 
 		@PostMapping
-		public ResponseEntity<Customer> create(@RequestBody Customer item) {
+		public ResponseEntity<Customer> create(@Valid @RequestBody Customer item) {
 				try {
 						Customer savedItem = customerService.save(item);
 						return new ResponseEntity<>(savedItem, HttpStatus.CREATED);

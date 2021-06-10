@@ -2,13 +2,16 @@
 
 [![.github/workflows/push.yml](https://github.com/shavo007/spring-integ-demo/actions/workflows/push.yml/badge.svg)](https://github.com/shavo007/spring-integ-demo/actions/workflows/push.yml)
 
-![customer API arch](./assets/CustomerAPI.svg)
+![customer API arch](./assets/ArchDiagram.png)
 
 > Integration testing is a healthy part of the [test pyramid](https://martinfowler.com/articles/practical-test-pyramid.html)
 
 ## TODO
 
 showcase benefits of integ tests
+
+- **Improved portability**: Mocking your dependencies with testcontainers allows you to run your tests anywhere Docker is installed. It removes the need for username/password credentials and open ports to the external network, and the overall overhead associated with these resources.
+- **Known stateful setup**: Utilizing testcontainers allows you to have the same consistent state before every run of your functional test. This reduces the reliance on a proper test state in your real dependencies. The  **“ephemeral”** nature of docker containers helps. ie. we mean that the container can be stopped and destroyed, then rebuilt and replaced with an absolute minimum set up and configuration.
 
 ## Definition of an integration test
 
@@ -28,14 +31,14 @@ showcase benefits of integ tests
 - [CustomerS3LocalStackIT](./src/test/java/com/example/integdemo/CustomerS3LocalStackIT.java) AWS s3 example with localstack `mvn test -Dtest=CustomerS3LocalStackIT`
 - [CustomerGithubActionsIT](./src/test/java/com/example/integdemo/CustomerGithubActionsIT.java) showcase running as github action with docker containers `mvn test -Dtest=CustomerGithubActionsIT`
 - [CustomerRestAssuredIT](./src/test/java/com/example/integdemo/CustomerRestAssuredIT.java) showcase using restAssured
-- showcase exception handling
+- [CustomerControllerExceptionHandIT](./src/test/java/com/example/integdemo/CustomerRestAssuredIT.java) showcase exception handling
 
 ## Mvn failsafe plugin
 
 Run all integration tests
 
 ```bash
-mvn verify
+mvn -V -ff verify
 ```
 
 ## Considerations
@@ -67,6 +70,9 @@ SELECT * from customer;
 CREATE DATABASE mytestdatabase; #create test database
 ```
 
+## Junit insights report
+
+![sample report](./assets/insights.png)
 ## Resources
 
 - [test slices](https://docs.spring.io/spring-boot/docs/current/reference/html/test-auto-configuration.html)
