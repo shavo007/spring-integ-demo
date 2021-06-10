@@ -8,6 +8,7 @@
 
 ## TODO
 
+test
 showcase benefits of integ tests
 
 ## Definition of an integration test
