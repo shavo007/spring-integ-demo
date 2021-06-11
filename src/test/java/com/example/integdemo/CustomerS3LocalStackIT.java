@@ -109,6 +109,9 @@ public class CustomerS3LocalStackIT {
     LogManager.getLogManager().getLogger("").setLevel(Level.OFF);
   }
 
+	// Using Testcontainers’s Localstack module in particular can allow you to remove AWS dependencies
+	// from functional tests. Localstack provides a containerized way of mocking AWS components,
+	// eliminating any need to connect to your real AWS infrastructure during testing.
 	@Container
 	private static final LocalStackContainer localstack =
 			new LocalStackContainer(LOCAL_STACK_IMAGE).withServices(Service.S3);

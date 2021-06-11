@@ -80,3 +80,4 @@ CREATE DATABASE mytestdatabase; #create test database
 - [dynamically set config](https://www.baeldung.com/spring-dynamicpropertysource)
 - [test containers database](https://www.testcontainers.org/modules/databases/)
 - [maven failsafe plugin](https://www.baeldung.com/maven-integration-test#failsafe)
+- [quirks of testconfiguration](https://www.sivalabs.in/2020/12/quirks-of-spring-testconfiguration/)
