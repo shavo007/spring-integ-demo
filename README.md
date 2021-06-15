@@ -31,7 +31,7 @@ showcase benefits of integ tests
 - [CustomerS3LocalStackIT](./src/test/java/com/example/integdemo/CustomerS3LocalStackIT.java) AWS s3 example with localstack `mvn test -Dtest=CustomerS3LocalStackIT`
 - [CustomerGithubActionsIT](./src/test/java/com/example/integdemo/CustomerGithubActionsIT.java) showcase running as github action with docker containers `mvn test -Dtest=CustomerGithubActionsIT`
 - [CustomerRestAssuredIT](./src/test/java/com/example/integdemo/CustomerRestAssuredIT.java) showcase using restAssured
-- [CustomerControllerExceptionHandIT](./src/test/java/com/example/integdemo/CustomerRestAssuredIT.java) showcase exception handling
+- [CustomerControllerExceptionHandIT](./src/test/java/com/example/integdemo/CustomerControllerExceptionHandIT.java) showcase exception handling
 
 ## Mvn failsafe plugin
 
