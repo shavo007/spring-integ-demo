@@ -1,6 +1,7 @@
 package com.example.integdemo;
 
 import com.example.IntegDemoApplication;
+import com.example.integdemo.annotation.IT;
 import com.example.model.Customer;
 import com.example.model.Greeting;
 import com.example.repo.CustomerRepository;
@@ -17,12 +18,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.springframework.test.context.junit4.SpringRunner;
-import de.adesso.junitinsights.annotations.JUnitInsights;
 import io.restassured.http.ContentType;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -32,23 +27,12 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.Matchers.greaterThanOrEqualTo;
-import static org.hamcrest.Matchers.hasSize;
-import static io.restassured.RestAssured.*;
-import static io.restassured.matcher.RestAssuredMatchers.*;
-import static org.hamcrest.Matchers.*;
 
 import java.io.IOException;
-import java.net.URI;
 import javax.annotation.PostConstruct;
-import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.doNothing;
 
-@ExtendWith(SpringExtension.class)
-@TestInstance(org.junit.jupiter.api.TestInstance.Lifecycle.PER_CLASS)
-@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT, classes = IntegDemoApplication.class)
-@DisplayNameGeneration(org.junit.jupiter.api.DisplayNameGenerator.ReplaceUnderscores.class)
-@JUnitInsights
+@IT
 public class CustomerGithubActionsIT {
 
 	@LocalServerPort
@@ -114,7 +98,7 @@ public class CustomerGithubActionsIT {
 	//
 
 	private Customer createTestCustomer(String name, String last) {
-		Customer customer = new Customer(0L, name, last);
+		Customer customer = Customer.builder().id(0L).firstName(name).lastName(last).build();
 		return repository.save(customer);
 	}
 

@@ -51,6 +51,7 @@ mvn -V -ff verify
 ## Start the app
 
 ```bash
+#can create a docker compose file here instead
 docker run --name postgres-demo -e POSTGRES_PASSWORD=root -p 5432:5432 -d postgres:11
 docker run -d -p8090:8081 shanelee007/greetings-api:latest
 docker run -d -p 4566:4566 -p 4571:4571 localstack/localstack -e "SERVICES=dynamodb,s3"
@@ -67,12 +68,12 @@ psql -d postgres -U postgres
 \s #command history
 
 SELECT * from customer;
-CREATE DATABASE mytestdatabase; #create test database
 ```
 
 ## Junit insights report
 
 ![sample report](./assets/insights.png)
+
 ## Resources
 
 - [test slices](https://docs.spring.io/spring-boot/docs/current/reference/html/test-auto-configuration.html)
@@ -81,3 +82,4 @@ CREATE DATABASE mytestdatabase; #create test database
 - [test containers database](https://www.testcontainers.org/modules/databases/)
 - [maven failsafe plugin](https://www.baeldung.com/maven-integration-test#failsafe)
 - [quirks of testconfiguration](https://www.sivalabs.in/2020/12/quirks-of-spring-testconfiguration/)
+- [test containers demo](https://github.com/drjunior90/testcontainers-demo)
