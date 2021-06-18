@@ -35,3 +35,9 @@ jobs:
       run: mvn --batch-mode -ff -V --update-snapshots test  -Dtest=CustomerGithubActionsIT
       env:
         POSTGRES_HOST: jdbc:postgresql://localhost:5432/postgres
+    - name: Publish Unit Test Results
+      uses: EnricoMi/publish-unit-test-result-action@v1.17
+      if: always()
+      with:
+        files: target/failsafe-reports/*.xml
+
