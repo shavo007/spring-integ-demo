@@ -39,5 +39,5 @@ jobs:
       uses: EnricoMi/publish-unit-test-result-action@v1.17
       if: always()
       with:
-        files: target/failsafe-reports/*.xml
+        files: target/**/*.xml
 
