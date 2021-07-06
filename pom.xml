@@ -158,6 +158,14 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>3.0.0-M5</version>
 				<configuration>
+					<argLine>-Xmx1g -XX:MaxPermSize=256m</argLine>
+						<properties>
+							<configurationParameters>
+           junit.jupiter.execution.parallel.enabled=true
+           junit.jupiter.execution.parallel.mode.default=concurrent
+           junit.jupiter.execution.parallel.mode.classes.default=concurrent
+         </configurationParameters>
+						</properties>
 					<systemPropertyVariables>
 						<de.adesso.junitinsights.enabled>true</de.adesso.junitinsights.enabled>
 					</systemPropertyVariables>

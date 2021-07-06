@@ -70,6 +70,32 @@ SELECT * from customer;
 
 ![sample report](./assets/insights.png)
 
+## Performance
+
+BEFORE
+```bash
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:30 min
+[INFO] Finished at: 2021-07-06T21:59:11+10:00
+[INFO] ------------------------------------------------------------------------
+```
+
+AFTER with parallel execution
+```bash
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:15 min
+[INFO] Finished at: 2021-07-06T22:30:02+10:00
+[INFO] ------------------------------------------------------------------------
+```
+
+```xml
+  <configurationParameters>
+           junit.jupiter.execution.parallel.enabled=true
+           junit.jupiter.execution.parallel.mode.default=concurrent
+           junit.jupiter.execution.parallel.mode.classes.default=concurrent
+         </configurationParameters>
+```
+
 ## Resources
 
 - [test slices](https://docs.spring.io/spring-boot/docs/current/reference/html/test-auto-configuration.html)
