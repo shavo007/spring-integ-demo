@@ -21,6 +21,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.containers.PostgreSQLContainer;
+import org.testcontainers.containers.output.Slf4jLogConsumer;
 import org.testcontainers.images.ImagePullPolicy;
 import org.testcontainers.images.PullPolicy;
 import org.testcontainers.junit.jupiter.Container;
@@ -90,7 +91,8 @@ public class CustomerThirdPartyAPIIT {
   // software or in between parallel test runs.
   @Container
   private static final GenericContainer<?> GREETINGS_CONTAINER =
-      new GenericContainer<>(GREETING_IMAGE).withImagePullPolicy(PullPolicy.defaultPolicy()).withExposedPorts(8081);
+      new GenericContainer<>(GREETING_IMAGE).withImagePullPolicy(PullPolicy.defaultPolicy()).withExposedPorts(8081)
+			.withLogConsumer(new Slf4jLogConsumer(log));
 
   // dynamically configures the runtime port for postgres defined above
 
