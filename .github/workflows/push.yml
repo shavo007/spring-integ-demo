@@ -40,4 +40,7 @@ jobs:
       if: always()
       with:
         files: target/**/*.xml
+    - name: Codecov
+      uses: codecov/codecov-action@v2.0.3
+
 
