@@ -1,6 +1,7 @@
 # Spring integration tests
 
 [![.github/workflows/push.yml](https://github.com/shavo007/spring-integ-demo/actions/workflows/push.yml/badge.svg)](https://github.com/shavo007/spring-integ-demo/actions/workflows/push.yml)
+[![codecov](https://codecov.io/gh/shavo007/spring-integ-demo/branch/main/graph/badge.svg?token=HZF6JYN2GX)](https://codecov.io/gh/shavo007/spring-integ-demo)
 
 ![customer API arch](./assets/ArchDiagram.png)
 
