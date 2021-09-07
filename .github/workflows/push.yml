@@ -36,7 +36,7 @@ jobs:
       env:
         POSTGRES_HOST: jdbc:postgresql://localhost:5432/postgres
     - name: Publish Unit Test Results
-      uses: EnricoMi/publish-unit-test-result-action@v1.17
+      uses: EnricoMi/publish-unit-test-result-action@v1.19
       if: always()
       with:
         files: target/**/*.xml
