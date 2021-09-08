@@ -14,7 +14,7 @@
   <description>Demo project for Spring Boot and integ tests</description>
   <properties>
     <java.version>11</java.version>
-    <testcontainers.version>1.15.3</testcontainers.version>
+    <testcontainers.version>1.16.0</testcontainers.version>
   </properties>
   <dependencies>
     <dependency>
