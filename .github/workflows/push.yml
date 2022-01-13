@@ -37,12 +37,12 @@ jobs:
       env:
         POSTGRES_HOST: jdbc:postgresql://localhost:5432/postgres
     - name: Publish Unit Test Results
-      uses: EnricoMi/publish-unit-test-result-action@v1.25
+      uses: EnricoMi/publish-unit-test-result-action@v1.26
       if: always()
       with:
         files: target/**/*.xml
     - name: Codecov
-      uses: codecov/codecov-action@v2.0.3
+      uses: codecov/codecov-action@v2.1.0
       with:
         files: ./target/jacoco.exec
         flags: unittests
