@@ -14,7 +14,7 @@
   <description>Demo project for Spring Boot and integ tests</description>
   <properties>
     <java.version>11</java.version>
-    <testcontainers.version>1.16.2</testcontainers.version>
+    <testcontainers.version>1.16.3</testcontainers.version>
   </properties>
   <dependencies>
     <dependency>
@@ -63,7 +63,7 @@
     <dependency>
       <groupId>io.rest-assured</groupId>
       <artifactId>rest-assured</artifactId>
-      <version>4.4.0</version>
+      <version>4.5.0</version>
       <scope>test</scope>
     </dependency>
     <dependency>

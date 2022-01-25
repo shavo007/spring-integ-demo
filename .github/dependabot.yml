@@ -12,6 +12,9 @@ updates:
     labels:
       - "maven"
       - "dependencies"
+    ignore:
+      - dependency-name: "aws-java-sdk-s3"
+      - dependency-name: "software.amazon.awssdk:bom"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
