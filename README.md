@@ -1,7 +1,20 @@
 # Spring integration tests
 
-[![.github/workflows/push.yml](https://github.com/shavo007/spring-integ-demo/actions/workflows/push.yml/badge.svg)](https://github.com/shavo007/spring-integ-demo/actions/workflows/push.yml)
-[![codecov](https://codecov.io/gh/shavo007/spring-integ-demo/branch/main/graph/badge.svg?token=HZF6JYN2GX)](https://codecov.io/gh/shavo007/spring-integ-demo)
+
+<p align="center">
+  <a href="https://github.com/shavo007/spring-integ-demo/actions/workflows/push.yml">
+    <img src="https://github.com/shavo007/spring-integ-demo/actions/workflows/push.yml/badge.svg" alt="CI" style="max-width: 100%;">
+  </a>
+  <a href="https://github.com/shavo007/spring-integ-demo/actions/workflows/codeql.yml">
+    <img src="https://github.com/shavo007/spring-integ-demo/actions/workflows/codeql.yml/badge.svg" alt="CodeQL" style="max-width: 100%;">
+  </a>
+ </a>
+  <img src="https://img.shields.io/badge/Dependabot-active-brightgreen.svg" alt="Dependabot Badge">
+  <img src="https://img.shields.io/github/languages/code-size/shavo007/spring-integ-demo" alt="GitHub code size in bytes">
+  <img src="https://img.shields.io/github/commit-activity/w/shavo007/spring-integ-demo" alt="GitHub commit activity">
+  <a href="https://github.com/shavo007/spring-integ-demo/issues">
+    <img src="https://img.shields.io/github/issues/shavo007/spring-integ-demo" alt="GitHub issues">
+  </a>
 
 ![customer API arch](./assets/ArchDiagram.png)
 
