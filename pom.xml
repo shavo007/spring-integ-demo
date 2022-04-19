@@ -38,7 +38,7 @@
     <dependency>
       <groupId>org.testcontainers</groupId>
       <artifactId>localstack</artifactId>
-      <version>1.16.2</version>
+      <version>1.17.1</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -158,7 +158,7 @@
       </plugin>
       <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
-        <version>3.0.0-M5</version>
+        <version>3.0.0-M6</version>
         <configuration>
           <!-- <argLine>-Xmx1g -XX:MaxPermSize=256m</argLine> -->
           <!-- <properties>
