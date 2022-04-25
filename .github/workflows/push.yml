@@ -42,7 +42,7 @@ jobs:
       with:
         files: target/**/*.xml
     - name: Codecov
-      uses: codecov/codecov-action@v3.0.0
+      uses: codecov/codecov-action@v3.1.0
       with:
         files: ./target/jacoco.exec
         flags: unittests
